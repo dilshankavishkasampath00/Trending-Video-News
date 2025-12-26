@@ -16,7 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
 
-  const API_KEY = 'AIzaSyCodTPzzRbXcLbOnEMdFMozowirX8opN-8';
+  const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY || 'AIzaSyCodTPzzRbXcLbOnEMdFMozowirX8opN-8';
   const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
 
   // Fetch trending videos
@@ -49,8 +49,20 @@ function App() {
         setVideos(processedVideos);
         applyFilters(processedVideos, selectedCategory, searchTerm);
       } catch (err) {
-        setError('Failed to fetch videos. Please check your API key.');
-        console.error('Error:', err);
+        console.error('Error details:', err);
+        let errorMsg = 'Failed to fetch videos. ';
+        
+        if (err.response?.status === 403) {
+          errorMsg += 'API quota exceeded or API key invalid.';
+        } else if (err.response?.status === 400) {
+          errorMsg += 'Invalid request parameters.';
+        } else if (err.code === 'ERR_NETWORK') {
+          errorMsg += 'Network error. Check your internet connection.';
+        } else {
+          errorMsg += 'Please check your API key and try again.';
+        }
+        
+        setError(errorMsg);
       } finally {
         setLoading(false);
       }
