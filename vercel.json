@@ -21,8 +21,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "REACT_APP_YOUTUBE_API_KEY": "@youtube_api_key"
-  }
+  ]
 }
