@@ -1,0 +1,35 @@
+.category-tabs {
+  gap: 10px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category-tab {
+  color: #666;
+  font-weight: 500;
+  border-radius: 25px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: white;
+  cursor: pointer;
+}
+
+.category-tab:hover {
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.category-tab.active {
+  background-color: #ff0000;
+  color: white;
+  border-color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .category-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,21 @@
+.navbar-custom {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #1f1f1f;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff0000 !important;
+}
+
+.navbar-brand:hover {
+  color: #ff6666 !important;
+  transition: color 0.3s ease;
+}
+
+.country-select {
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
