@@ -69,7 +69,7 @@ function App() {
     };
 
     fetchVideos();
-  }, [selectedCountry, selectedCategory, searchTerm]);
+  }, [selectedCountry]);
 
   // Detect category based on title
   const detectCategory = (title) => {
